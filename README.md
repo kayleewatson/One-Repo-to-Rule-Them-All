@@ -7,6 +7,7 @@ Useful bioinformatics scripts and commands
 [Average read length per gene/feature in a BAM file](avg_read_length.sh)
 
 [Split a BAM file](split_bam.sh)
+
 Split a BAM file into a specified number of files or a specified number of reads per file
 ```
 Usage: split_bam.sh -b <BAM_FILE> [-n NUMBER_OF_FILES | -r NUMBER_OF_READS_PER_FILE]
