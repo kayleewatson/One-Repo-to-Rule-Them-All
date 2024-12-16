@@ -1,13 +1,18 @@
 # One-Repo-to-Rule-Them-All
 Useful bioinformatics scripts and commands
 
+### ```avg_gene_depth.sh```
+[Bash script](avg_gene_depth.sh)
 
-[Average sequencing depth per gene in a BAM file](avg_gene_depth.sh)
+Get the average sequencing depth per gene in a BAM file
 
-[Average read length per gene/feature in a BAM file](avg_read_length.sh)
+### ```avg_read_length.sh```
+[Bash script](avg_read_length.sh)
+
+Get the average read length per gene/feature in a BAM file
 
 ### ```split_bam.sh```
-[split_bam.sh](split_bam.sh)
+[Bash script](split_bam.sh)
 
 Split a BAM file into a specified number of files or a specified number of reads per file
 ```
