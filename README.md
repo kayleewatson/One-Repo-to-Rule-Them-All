@@ -16,7 +16,7 @@ Get the average read length per gene/feature in a BAM file
 
 Split a BAM file into a specified number of files or a specified number of reads per file
 ```
-Usage: split_bam.sh -b <BAM_FILE> [-n NUMBER_OF_FILES | -r NUMBER_OF_READS_PER_FILE]
+Usage: bash split_bam.sh -b <BAM_FILE> [-n NUMBER_OF_FILES | -r NUMBER_OF_READS_PER_FILE]
 
 Required:
   -b      BAM file input
