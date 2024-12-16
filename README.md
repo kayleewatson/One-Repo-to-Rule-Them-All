@@ -4,7 +4,8 @@ Useful bioinformatics scripts and commands
 ### ```avg_gene_depth.sh```
 [Bash script](avg_gene_depth.sh)
 
-Get the average sequencing depth per gene in a BAM file
+Calculate the average sequencing depth per gene in a BAM file from a transcriptome alignment
+
 
 ### ```avg_read_length.sh```
 [Bash script](avg_read_length.sh)
