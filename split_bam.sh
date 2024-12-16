@@ -7,7 +7,7 @@ Help()
     echo
     echo "This script will split a BAM file into multiple files, maintaining the order of the reads in the original file"
     echo
-    echo "Usage: split_bam.sh -b <BAM_FILE> [-n NUMBER_OF_FILES | -r NUMBER_OF_READS_PER_FILE]"
+    echo "Usage: bash split_bam.sh -b <BAM_FILE> [-n NUMBER_OF_FILES | -r NUMBER_OF_READS_PER_FILE]"
     echo
     echo "Required:"
     echo "  -b      BAM file input"
@@ -59,7 +59,6 @@ else
             echo -e "Splitting bam input into individual files with $num_reads reads each\n"
             samtools view -H $bam > split_header_temp_file
             samtools view $bam | split -l $num_reads -d --additional-suffix .sam - $prefix
-            rm split_header_temp_file
             exit
         fi
      elif ! [[ $num_files =~ $numeric ]]; then
@@ -70,7 +69,7 @@ else
          samtools view -H $bam > split_header_temp_file
          samtools view $bam > temporary_file_for_split_1.sam
          split -n l/$num_files -d temporary_file_for_split_1.sam $prefix
-         rm split_header_temp_file temporary_file_for_split_1.sam
+         rm temporary_file_for_split_1.sam
     fi
 fi
 
@@ -78,3 +77,4 @@ for file in $prefix*; do
     cat split_header_temp_file "$file" | samtools view -bho "$file".bam
     rm "$file"
 done
+rm split_header_temp_file
