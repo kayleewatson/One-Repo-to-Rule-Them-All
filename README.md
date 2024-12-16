@@ -1,4 +1,4 @@
-# One-Repo-to-Rule-Them-All
+# One Repo to Rule Them All
 Useful bioinformatics scripts and commands
 
 ### ```avg_gene_depth.sh```
