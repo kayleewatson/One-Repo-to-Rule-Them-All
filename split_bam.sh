@@ -44,37 +44,38 @@ fi
 
 numeric="^[0-9]+$"
 
+numeric="^[0-9]+$"
+
 if [[ -z $bam ]]; then
     echo "BAM file input required"
     exit
 else
     if [[ -z $num_files ]]; then
         if [[ -z $num_reads ]]; then
-            echo "Please specify number of files or number of reads per file"
+            echo -e "\nPlease specify number of files or number of reads per file"
             exit
         elif ! [[ $num_reads =~ $numeric ]]; then
-            echo "Number of reads must be an integer"
+            echo -e "\nNumber of reads must be an integer"
             exit
         else
-            echo -e "Splitting bam input into individual files with $num_reads reads each\n"
-            samtools view -H $bam > split_header_temp_file
-            samtools view $bam | split -l $num_reads -d --additional-suffix .sam - $prefix
+            echo -e "\nSplitting bam input into individual files with $num_reads reads each\n"
+            samtools view $bam | split -l $num_reads -d - $prefix
             exit
         fi
      elif ! [[ $num_files =~ $numeric ]]; then
-        echo "Number of files must be an integer"
+        echo -e "\nNumber of files must be an integer"
         exit
      else
-         echo -e "Splitting bam input into $num_files individual files\n"
-         samtools view -H $bam > split_header_temp_file
+         echo -e "\nSplitting bam input into $num_files individual files\n"
          samtools view $bam > temporary_file_for_split_1.sam
          split -n l/$num_files -d temporary_file_for_split_1.sam $prefix
          rm temporary_file_for_split_1.sam
     fi
 fi
 
+samtools view -H $bam > split_header_temp_file
 for file in $prefix*; do
-    cat split_header_temp_file "$file" | samtools view -bho "$file".bam
+    cat split_header_temp_file "$file" | samtools view -bh > "$file".bam
     rm "$file"
 done
 rm split_header_temp_file
