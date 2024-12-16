@@ -8,7 +8,7 @@ Useful bioinformatics scripts and commands
 
 [Split a BAM file](split_bam.sh)
 Split a BAM file into a specified number of files or a specified number of reads per file
-`
+```
 Usage: split_bam.sh -b <BAM_FILE> [-n NUMBER_OF_FILES | -r NUMBER_OF_READS_PER_FILE]
 
 Required:
@@ -17,4 +17,4 @@ Required:
 Optional:
   -p      Specify prefix for output bam files (default: bam_split)
   -h      Print this help message
-`
+```
